@@ -7,6 +7,8 @@ import {
 
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Sae } from 'react-native-textinput-effects';
+import Button from 'apsl-react-native-button';
+
 
 class Register extends Component {
 
@@ -69,6 +71,7 @@ class Register extends Component {
           style={styles.register}
           inputStyle={{ color: 'black' }}
         />
+        <Button style={styles.regBtn}>Register</Button>
       </View>
     ) 
   }
@@ -79,6 +82,9 @@ const styles = StyleSheet.create ({
     marginTop: 50,
     width: 200,
   },
+  regBtn: {
+    margin: 5,
+  }
 })
 
 export default Register;

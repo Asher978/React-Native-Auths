@@ -5,12 +5,14 @@ import {
   Text,
   View
 } from 'react-native';
+import Home from './components/Home';
+import Register from './components/Register';
 
 export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        
+        <Register />
       </View>
     );
   }

@@ -1,29 +1,43 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View
 } from 'react-native';
-import Home from './components/Home';
-import Register from './components/Register';
+import { StackNavigator } from 'react-navigation';
+import { Router, Scene } from 'react-native-router-flux';
 
-export default class App extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Register />
-      </View>
-    );
-  }
+import Home from './components/Home';
+import Auth from './components/Auth';
+
+const TabIcon = ({ selected, title }) => {
+  return (
+    <Text style={{color: selected ? 'red' : 'black'}}></Text>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
+const App = () => {
+  return (
+    <Router>
+      <Scene key='root'>
+        <Scene
+          component={Auth}
+          hideNavBar
+          initial
+          key='Auth'
+          title='Authentication'
+        />
+
+        <Scene 
+          component={Home}
+          hideNavBar
+          key='Home'
+          title='Home'
+        />
+      </Scene>
+    </Router>
+  )
+}
+
+export default App;
 

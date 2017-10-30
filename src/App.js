@@ -9,34 +9,44 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import Home from './components/Home';
 import Auth from './components/Auth';
+import Register from './components/Register';
+import Login from './components/Login';
 
-const TabIcon = ({ selected, title }) => {
-  return (
-    <Text style={{color: selected ? 'red' : 'black'}}></Text>
-  )
-}
 
-const App = () => {
-  return (
-    <Router>
-      <Scene key='root'>
-        <Scene
-          component={Auth}
-          hideNavBar
-          initial
-          key='Auth'
-          title='Authentication'
-        />
 
-        <Scene 
-          component={Home}
-          hideNavBar
-          key='Home'
-          title='Home'
-        />
-      </Scene>
-    </Router>
-  )
+class App extends Component {
+
+  render () {
+    return (
+      <Router>
+        <Scene key='root'>
+          <Scene 
+            component={Home}
+            hideNavBar
+            initial
+            key='Home'
+            title='Home'
+          />
+  
+          <Scene
+            component={Login}
+            hideNavBar
+            key='Login'
+            title='Login'
+          />
+  
+  
+          <Scene 
+            component={Register}
+            hideNavBar
+            key='Register'
+            title='Register'
+          />
+  
+        </Scene>
+      </Router>
+    )
+  }
 }
 
 export default App;
